@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Main } from './components/Main';
+import { Header } from './components/Header';
 
-function App() {
+export const App = () => {
+  const [imgs, setImgs] = useState([]);
+  const [keyword, setKeyword] = useState('mar azul');
+
+  const API_KEY = '19792472-060d63124e6749716f410447d';
+  useEffect(() => {
+    const API_URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURI(keyword)}&image_type=photo`
+    fetch(API_URL)
+      .then((response) => {
+        return response.json()
+      })
+      .then(({hits}) => {
+        setImgs(hits);
+      })
+  }, [keyword]);
+  
+  const handleSearch = (keyword) => {
+    setKeyword(keyword);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header handleSearch={handleSearch} />
+      <Main keyword={keyword} hits={imgs} />
+    </>
+  )
 }
 
 export default App;

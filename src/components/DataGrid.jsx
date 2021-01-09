@@ -4,8 +4,8 @@ import DataGridItem from './DataGridItem';
 export const DataGrid = ({ hits, keyword }) => {
   
   return (
-    <div>
+    <section className='imgs-container'>
       {hits.map(({id, tags, likes, previewURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={previewURL} />)}
-    </div>
+    </section>
   )
 }

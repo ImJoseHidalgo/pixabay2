@@ -9,3 +9,4 @@ export const Header = ({ setTipe, handleSearch }) => {
     </header>
   )
 }
+export default Header;

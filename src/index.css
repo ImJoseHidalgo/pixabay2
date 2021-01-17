@@ -22,25 +22,33 @@ h1, h2, h3, h4, p, a, li, input, button {
 header {
   background: #1f1f1f;
   color: #fff;
-  min-height: 10rem;
+  min-height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.imgs-container {
-  max-width: 90%;
-  margin: auto;
-  background: gray;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
-.img-container {
+.header-search {
   background: red;
+  min-height: 10rem;
+}
+main {
+  text-align: center;
+}
+.imgs-container {
+  max-width: 100%;
+  margin: 0 1.5rem;
+  /* background: gray; */
+  columns: 4;
+  /* display: grid;
+  grid-template-columns: repeat(5, 1fr); */
+  gap: 1.5rem;
 }
 .img-container img {
   width: 100%;
-  height: 25rem;
+  /* height: 25rem; */
+  height: 100%;
+  border-radius: .3rem;
+  margin-bottom: 1.5rem;
   object-fit: cover;
 }

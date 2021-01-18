@@ -1,32 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ImageView from './components/ImageView';
-import Page404 from './components/Page404';
-import MainSearch from './components/MainSearch';
-import MainHome from './components/MainHome';
+import { Link, Route, Switch } from 'wouter';
+import ImageDetail from './components/pages/ImageDetail';
+import { DataGrid } from './components/pages/DataGrid';
+import Home from './components/pages/Home';
+import Page404 from './components/pages/Page404';
 
 export const App = () => {
 
   return (
-    <Router>
+    <div className='App'>
       <h1>Header Message</h1>
       <Link to='/'>Home</Link>
       <Switch>
-        <Route path='/img/:id'>
-          <ImageView />
-        </Route>
-        <Route path='/search/:keyword/:page'>
-          <MainSearch />
-        </Route>
-        <Route exact path='/'>
-          {/* <MainHome /> */}
-          <MainSearch />
-        </Route>
-        <Route>
-          <Page404 />
-        </Route>
-      </Switch>      
-    </Router>
+        <Route path='/' component={Home} />
+        <Route path='/search/:keyword/:page' component={DataGrid} />
+        <Route path='/img/:id' component={ImageDetail} />
+        <Route component={Page404} />
+      </Switch>
+    </div>
   )
 }
 

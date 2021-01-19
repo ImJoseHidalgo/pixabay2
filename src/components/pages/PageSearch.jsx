@@ -5,7 +5,7 @@ import DataGridItem from '../DataGridItem';
 import HeaderSearch from '../HeaderSearch';
 import useData from '../hooks/useData';
 
-export const DataGrid = ({params}) => {
+export const PageSearch = ({params}) => {
   const {keyword, page} = params
 
   const [inpKeyword, setInpKeyword] = useState('');
@@ -31,11 +31,12 @@ export const DataGrid = ({params}) => {
 
   return (<>
     <HeaderSearch handleSearch={handleSearch} />
-    <BotonPaginacion prev={prevPage} next={nextPage} />
+    <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
     {loading 
       ? <h1>Cargando...</h1>
       : <section className='imgs-container'>
       {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
     </section>}
+    <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
   </>)
 }

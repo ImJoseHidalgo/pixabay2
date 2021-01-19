@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getData from "../../services/getData";
 
-const useData = ({page, keyword } = { keyword: localStorage.getItem('lastKeyword') || 'moon' }) => {
+const useData = ({page, keyword } = { keyword: localStorage.getItem('lastKeyword') || 'populars' }) => {
   const [imgs, setImgs] = useState([]);
   const [loading, setLoading] = useState(false);
   

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'wouter';
 import DataGridItem from '../DataGridItem';
 import useData from '../hooks/useData';
-import HeaderHomeSearch from '../HeaderHomSearch';
+import HeaderHomeSearch from '../HeaderHomeSearch';
+import Landing from '../Landing';
 
 const Home = () => {
   const [keyword, setKeyword] = useState('');
@@ -18,6 +19,7 @@ const Home = () => {
   
   return (<>
     <HeaderHomeSearch handleSearch={handleSearch} />
+    <Landing />
     {loading 
       ? <h1>Cargando...</h1>
       : <section className='imgs-container'>

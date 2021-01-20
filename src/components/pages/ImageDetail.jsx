@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import GetImgData from '../../services/GetImgData';
 import HeaderSearch from '../HeaderSearch';
 import iconUser from '../../icons/icon-user.png';
+import likeIcon from '../../icons/corazon.svg';
 
 const ImageDetail = ({ params }) => {
   const {id} = params;
@@ -16,7 +17,8 @@ const ImageDetail = ({ params }) => {
     localStorage.setItem('page', 1);
     pushLocation(`/search/${inpKeyword}/1`);
   }
-
+  window.scrollTo(0,0);
+  
   return (
     <>
       <HeaderSearch handleSearch={handleSearch} />
@@ -26,6 +28,7 @@ const ImageDetail = ({ params }) => {
           <img src={largeImg} alt={tags} />
             <div className="add-favorite">
               <h2>Añadir a favoritos</h2>
+              <img src={likeIcon} alt='like icon' />
             </div>
         </div>
         <div className="right">

@@ -280,11 +280,13 @@ main span:hover {
 }
 .image-detail .left .add-favorite {
   position: absolute;
-  top: calc(50% - 2rem);
+  top: calc(50% - 4rem);
   right: -20rem;
   background: rgba(0, 0, 0, .3);
+  border-radius: 2rem 0 0 2rem;
   color: #fff;
   transition: .3s;
+  padding-bottom: 1rem;
 }
 .image-detail .left .add-favorite h2 {
   width: 20rem;
@@ -296,6 +298,13 @@ main span:hover {
 .image-detail .left:hover .add-favorite {
   right: 0;
 }
+.image-detail .left .add-favorite img {
+  width: 3rem;
+  height: 3rem;
+  filter: invert(1);
+  border-radius: 0;
+}
+
 .image-detail .right {
   /* background: blue; */
   width: 37rem;

@@ -6,7 +6,7 @@ import iconUser from '../../icons/icon-user.png';
 import likeIcon from '../../icons/corazon.svg';
 
 const ImageDetail = ({ params }) => {
-  const {id} = params;
+  const { id } = params;
   const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = GetImgData(id);
 
   const [inpKeyword, setInpKeyword] = useState('');
@@ -17,8 +17,8 @@ const ImageDetail = ({ params }) => {
     localStorage.setItem('page', 1);
     pushLocation(`/search/${inpKeyword}/1`);
   }
-  window.scrollTo(0,0);
-  
+  window.scrollTo(0, 0);
+
   return (
     <>
       <HeaderSearch handleSearch={handleSearch} />
@@ -26,10 +26,10 @@ const ImageDetail = ({ params }) => {
         <div className="left">
           {/* <img src={shortImg} alt={tags} /> */}
           <img src={largeImg} alt={tags} />
-            <div className="add-favorite">
-              <h2>Añadir a favoritos</h2>
-              <img src={likeIcon} alt='like icon' />
-            </div>
+          <div className="add-favorite">
+            <h2>Añadir a favoritos</h2>
+            <img src={likeIcon} alt='like icon' />
+          </div>
         </div>
         <div className="right">
           <div className="image-user">
@@ -44,8 +44,8 @@ const ImageDetail = ({ params }) => {
             <h2>Libre para uso comercial</h2>
           </div>
           <div className="botones-descarga">
-            <a href={shortImg+'?attachment'} >Descargar Mediano</a>
-            <a href={largeImg+'?attachment'} >Descargar Grande</a>
+            <a href={shortImg + '?attachment'} >Descargar Mediano</a>
+            <a href={largeImg + '?attachment'} >Descargar Grande</a>
           </div>
           <div className="image-data">
             <h2>Detalles de la imagen</h2>

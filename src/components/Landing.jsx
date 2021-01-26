@@ -11,7 +11,7 @@ const Landing = () => {
         <h1>Impresionantes fotos de stock gratis para descargar</h1>
         <h2>Más de 1,9 millones de fotos de stock libres de derechos compartidas por una comunidad talentosa</h2>
       </div>
-      <h2>Última Busqueda: <Link to={link} ><span>{keyword}</span></Link></h2>
+      <h2>Última Busqueda: <Link to={link} ><span>{decodeURI(keyword)}</span></Link></h2>
     </main>
   )
 }

@@ -152,6 +152,7 @@ form input {
   width: 100%;
   border-radius: 0 5rem 5rem 0;
   margin-left: 5rem;
+  text-align: start;
 }
 form button {
   cursor: pointer;
@@ -322,11 +323,13 @@ main span:hover {
 .image-detail .right .image-user h3 {
   font-weight: 400;
   margin-top: -1rem;
+  text-align: start;
 }
 .image-detail .right .image-user h2 {
   font-family: 'Abril Fatface', cursive;
   font-size: 2.4rem;
   font-weight: 400;
+  text-align: start;
 }
 .image-detail .right .licence {
   background: #fff;
@@ -335,6 +338,7 @@ main span:hover {
   margin: 2rem 0;
 }
 .image-detail .right .licence h2 {
+  text-align: start;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -375,6 +379,7 @@ main span:hover {
   font-weight: 600;
 }
 .image-detail .right .image-data h2 {
+  text-align: start;
   position: relative;
   font-size: 2rem;
   font-weight: 400;

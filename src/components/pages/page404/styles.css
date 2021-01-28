@@ -173,3 +173,63 @@ transform: rotate(-20deg);
   transform: rotate(-20deg);
   }
 }
+
+
+
+/* LOGIN
+============================== */
+.auth__loginScreen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth__loginScreen form {
+  width: 40rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: inherit;
+}
+.auth__loginScreen form input {
+  position: inherit;
+  width: 100%;
+  border-radius: 1rem;
+  margin: .5rem 0;
+  padding-left: 1rem;
+}
+.auth__loginScreen form button {
+  position: inherit;
+  width: 100%;
+  border-radius: 1rem;
+  margin: 1rem 0 .5rem;
+  background: #333;
+  color: #fff;
+}
+.auth__loginScreen .auth__socials {
+  width: 100%;
+  margin: 2rem 0;
+}
+.auth__loginScreen .auth__socials .auth__socials-google {
+  background: #0066ff;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.auth__loginScreen p {
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+}
+.auth__loginScreen p:hover {
+  color: #000;
+  text-decoration: underline;
+}

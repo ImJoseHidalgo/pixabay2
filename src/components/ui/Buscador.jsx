@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import iconLupa from '../icons/search.svg';
+import iconLupa from '../../icons/search.svg';
 
 export const Buscador = ({ handleSearch }) => {
   const [keyword, setKeyword] = useState('');

@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-// import { useLocation } from 'wouter';
-import DataGridItem from '../DataGridItem';
-import useData from '../hooks/useData';
-import HeaderHomeSearch from '../HeaderHomeSearch';
-import Landing from '../Landing';
+import DataGridItem from '../../ui/DataGridItem';
+import useData from '../../hooks/useData';
+import HeaderHomeSearch from '../../ui/HeaderHomeSearch';
+import Landing from '../../ui/Landing';
 
-const Home = () => {
+const HomeScreen = ({ history }) => {
   const [keyword, setKeyword] = useState('');
-  // const [path, pushLocation] = useLocation();
 
   const {loading, imgs} = useData();
 
   const handleSearch = (keyword) => {
     setKeyword(keyword);
-    localStorage.setItem('page', 1)
-    // pushLocation(`/search/${keyword}/1`);
+    localStorage.setItem('page', 1);
+    history.push(`/search/${keyword}/1`);
   }
   
   return (<>
@@ -28,4 +26,4 @@ const Home = () => {
   </>)
 }
 
-export default Home;
+export default HomeScreen;

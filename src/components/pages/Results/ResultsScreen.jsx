@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
-// import { useLocation } from 'wouter';
-import { BotonPaginacion } from '../BotonPaginacion';
-import DataGridItem from '../DataGridItem';
-import HeaderSearch from '../HeaderSearch';
-import useData from '../hooks/useData';
+import { useParams } from 'react-router-dom';
+import { BotonPaginacion } from '../../ui/BotonPaginacion';
+import DataGridItem from '../../ui/DataGridItem';
+import HeaderSearch from '../../ui/HeaderSearch';
+import useData from '../../hooks/useData';
 
-export const PageSearch = ({params}) => {
-  const {keyword, page} = params
+export const ResultsScreen = ({ history }) => {
+  const {keyword, page} = useParams();
 
   const [inpKeyword, setInpKeyword] = useState('');
-  // const [path, pushLocation] = useLocation();
   
   const { loading, imgs } = useData({keyword, page});
   
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
-    // pushLocation(`/search/${inpKeyword}/1`);
+    history.push(`/search/${inpKeyword}/1`);
   }
   
   const nextPage = () => {
     localStorage.setItem('page', Number(page)+1);
-    // pushLocation(`/search/${keyword}/${Number(page) + 1}`);
+    history.push(`/search/${keyword}/${Number(page) + 1}`);
   }
   const prevPage = () => {
     if (Number(page) === 1)  return;
     localStorage.setItem('page', Number(page)-1);
-    // pushLocation(`/search/${keyword}/${Number(page) - 1}`);
+    history.push(`/search/${keyword}/${Number(page) - 1}`);
   }
 
   return (<>

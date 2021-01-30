@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-// import { useLocation } from 'wouter';
-import GetImgData from '../../services/GetImgData';
-import HeaderSearch from '../HeaderSearch';
-import iconUser from '../../icons/icon-user.png';
-import likeIcon from '../../icons/corazon.svg';
+import GetImgData from '../../../services/GetImgData';
+import iconUser from '../../../icons/icon-user.png';
+import likeIcon from '../../../icons/corazon.svg';
+import { Redirect, useParams } from 'react-router-dom';
+import HeaderSearch from '../../ui/HeaderSearch';
 
-const ImageDetail = ({ params }) => {
-  const { id } = params;
-  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = GetImgData(id);
-
+const DetailScreen = ({ history }) => {
   const [inpKeyword, setInpKeyword] = useState('');
-  // const [path, pushLocation] = useLocation();
 
+  const { id } = useParams();
+  const detail = GetImgData(id);
+  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = detail;
+  
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
-    // pushLocation(`/search/${inpKeyword}/1`);
-  }
+    history.push(`/search/${inpKeyword}/1`);
+  };
+
   window.scrollTo(0, 0);
 
   return (
@@ -24,8 +25,8 @@ const ImageDetail = ({ params }) => {
       <HeaderSearch handleSearch={handleSearch} />
       <div className="image-detail">
         <div className="left">
-          {/* <img src={shortImg} alt={tags} /> */}
-          <img src={largeImg} alt={tags} />
+          <img src={shortImg} alt={tags} />
+          {/* <img src={largeImg} alt={tags} /> */}
           <div className="add-favorite">
             <h2>Añadir a favoritos</h2>
             <img src={likeIcon} alt='like icon' />
@@ -60,4 +61,4 @@ const ImageDetail = ({ params }) => {
   )
 }
 
-export default ImageDetail;
+export default DetailScreen;

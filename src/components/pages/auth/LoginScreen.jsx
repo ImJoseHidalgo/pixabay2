@@ -6,7 +6,7 @@ import { useForm } from '../../../hooks/useForm';
 import googleIcon from '../../../icons/google.svg';
 import facebookIcon from '../../../icons/facebook.svg';
 import logo from '../../../icons/logo-Pixabay.png';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 
 const LoginScreen = () => {
 

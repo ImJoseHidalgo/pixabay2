@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   const keyword = localStorage.getItem('lastKeyword');

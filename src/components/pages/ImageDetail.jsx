@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'wouter';
+// import { useLocation } from 'wouter';
 import GetImgData from '../../services/GetImgData';
 import HeaderSearch from '../HeaderSearch';
 import iconUser from '../../icons/icon-user.png';
@@ -10,12 +10,12 @@ const ImageDetail = ({ params }) => {
   const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = GetImgData(id);
 
   const [inpKeyword, setInpKeyword] = useState('');
-  const [path, pushLocation] = useLocation();
+  // const [path, pushLocation] = useLocation();
 
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
-    pushLocation(`/search/${inpKeyword}/1`);
+    // pushLocation(`/search/${inpKeyword}/1`);
   }
   window.scrollTo(0, 0);
 

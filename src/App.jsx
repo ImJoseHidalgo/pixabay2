@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'wouter';
+import { Route, Switch } from 'react-router-dom';
 import ImageDetail from './components/pages/ImageDetail';
 import { PageSearch } from './components/pages/PageSearch';
 import Home from './components/pages/Home';

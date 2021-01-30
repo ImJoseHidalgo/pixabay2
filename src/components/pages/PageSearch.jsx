@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'wouter';
+// import { useLocation } from 'wouter';
 import { BotonPaginacion } from '../BotonPaginacion';
 import DataGridItem from '../DataGridItem';
 import HeaderSearch from '../HeaderSearch';
@@ -9,24 +9,24 @@ export const PageSearch = ({params}) => {
   const {keyword, page} = params
 
   const [inpKeyword, setInpKeyword] = useState('');
-  const [path, pushLocation] = useLocation();
+  // const [path, pushLocation] = useLocation();
   
   const { loading, imgs } = useData({keyword, page});
   
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
-    pushLocation(`/search/${inpKeyword}/1`);
+    // pushLocation(`/search/${inpKeyword}/1`);
   }
   
   const nextPage = () => {
     localStorage.setItem('page', Number(page)+1);
-    pushLocation(`/search/${keyword}/${Number(page) + 1}`);
+    // pushLocation(`/search/${keyword}/${Number(page) + 1}`);
   }
   const prevPage = () => {
     if (Number(page) === 1)  return;
     localStorage.setItem('page', Number(page)-1);
-    pushLocation(`/search/${keyword}/${Number(page) - 1}`);
+    // pushLocation(`/search/${keyword}/${Number(page) - 1}`);
   }
 
   return (<>

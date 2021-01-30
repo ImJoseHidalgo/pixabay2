@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'wouter';
+// import { useLocation } from 'wouter';
 import HeaderSearch from '../HeaderSearch';
 import './page404/styles.css';
 
 const Page404 = () => {
   const [inpKeyword, setInpKeyword] = useState('');
-  const [path, pushLocation] = useLocation();
+  // const [path, pushLocation] = useLocation();
 
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
-    pushLocation(`/search/${inpKeyword}/1`);
+    // pushLocation(`/search/${inpKeyword}/1`);
   }
 
   // useEffect(() => {

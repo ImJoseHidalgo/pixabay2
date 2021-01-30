@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import { Buscador } from './Buscador';
 import logo from '../icons/logo-Pixabay.png';
 import arrow from '../icons/arrow.svg';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { useLocation } from 'wouter'
-import HeaderHomeSearch from '../../ui/HeaderHomeSearch';
+import HeaderSearch from '../../ui/HeaderSearch';
 import './styles.css';
 
 const Page404 = ({ history }) => {
@@ -14,7 +14,7 @@ const Page404 = ({ history }) => {
 
   return (
     <div>
-      <HeaderHomeSearch handleSearch={handleSearch} />
+      <HeaderSearch handleSearch={handleSearch} />
       <div className="p404__container">
         <div className="cont_principal  cont_error_active">
           <div className="cont_error">

@@ -9,9 +9,10 @@ const useData = ({ page, keyword } = { keyword: localStorage.getItem('lastKeywor
     setLoading(true);
     const keywordToUse = keyword || localStorage.getItem('lastKeyword');
     getData({ keyword: keywordToUse, page })
-      .then(data =>
-        setImgs(data));
-    setLoading(false);
+      .then(data => {
+        setImgs(data);
+        setLoading(false);
+      });
     localStorage.setItem('lastKeyword', decodeURI(keyword));
   }, [keyword, page]);
 

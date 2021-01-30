@@ -4,6 +4,7 @@ import { BotonPaginacion } from '../../ui/BotonPaginacion';
 import DataGridItem from '../../ui/DataGridItem';
 import HeaderSearch from '../../ui/HeaderSearch';
 import useData from '../../hooks/useData';
+import Loading from '../../ui/Loading';
 
 export const ResultsScreen = ({ history }) => {
   const {keyword, page} = useParams();
@@ -32,7 +33,7 @@ export const ResultsScreen = ({ history }) => {
     <HeaderSearch handleSearch={handleSearch} />
     <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
     {loading 
-      ? <h1>Cargando...</h1>
+      ? <Loading />
       : <section className='imgs-container'>
       {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
     </section>}

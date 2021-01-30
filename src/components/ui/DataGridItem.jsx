@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const DataGridItem = ({ id, tag, likes, img }) => {
   return (
     <Link to={`/img/${id}`}>
-      <div className='img-container'>
+      <div className='img-container animate__animated animate__fadeIn'>
         <img src={img} alt={tag} />
       </div>
     </Link>

@@ -4,10 +4,13 @@ import GetImgData from '../../../services/GetImgData';
 import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
 import HeaderHomeSearch from '../../ui/HeaderHomeSearch';
+import Loading from '../../ui/Loading';
 
 const ImageDetail = ({ params }) => {
   const { id } = params;
-  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = GetImgData(id);
+  const { loading, img }= GetImgData(id);
+
+  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = img;
 
   const [inpKeyword, setInpKeyword] = useState('');
   // const [path, pushLocation] = useLocation();
@@ -18,14 +21,18 @@ const ImageDetail = ({ params }) => {
     // pushLocation(`/search/${inpKeyword}/1`);
   }
   window.scrollTo(0, 0);
+  console.log(loading);
 
   return (
     <>
       <HeaderHomeSearch handleSearch={handleSearch} />
       <div className="image-detail">
         <div className="left">
-          {/* <img src={shortImg} alt={tags} /> */}
-          <img src={largeImg} alt={tags} />
+          {loading 
+            ? <Loading />
+            : <img src={shortImg} alt={tags} />
+          }
+          {/* <img src={largeImg} alt={tags} /> */}
           <div className="add-favorite">
             <h2>Añadir a favoritos</h2>
             <img src={likeIcon} alt='like icon' />

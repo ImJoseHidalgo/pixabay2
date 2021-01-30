@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-size: 62.5%;
 }
+:root {
+  --animate-duration: .5s;
+}
 body {
   /* font-family: 'Abril Fatface', cursive; */
   font-family: 'Sarabun', sans-serif;
@@ -25,8 +28,18 @@ h1, h2, h3, h4, p, a, li, input, button {
 main {
   text-align: center;
 }
+.loading {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading h1 {
+  font-size: 3rem;
+}
 .imgs-container {
   max-width: 100%;
+  min-height: 60vh;
   margin: 0 3rem 3rem;
   /* background: gray; */
   columns: 4;

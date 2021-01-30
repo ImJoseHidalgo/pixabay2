@@ -4,13 +4,15 @@ import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
 import { Redirect, useParams } from 'react-router-dom';
 import HeaderSearch from '../../ui/HeaderSearch';
+import Loading from '../../ui/Loading';
 
 const DetailScreen = ({ history }) => {
   const [inpKeyword, setInpKeyword] = useState('');
 
   const { id } = useParams();
-  const detail = GetImgData(id);
-  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = detail;
+  const { loading, img }= GetImgData(id);
+
+  const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = img;
   
   const handleSearch = (inpKeyword) => {
     setInpKeyword(inpKeyword);
@@ -24,8 +26,11 @@ const DetailScreen = ({ history }) => {
     <>
       <HeaderSearch handleSearch={handleSearch} />
       <div className="image-detail">
-        <div className="left">
-          <img src={shortImg} alt={tags} />
+        <div className="left animate__animated animate__fadeIn">
+          {loading 
+            ? <Loading />
+            : <img src={shortImg} alt={tags} />
+          }
           {/* <img src={largeImg} alt={tags} /> */}
           <div className="add-favorite">
             <h2>Añadir a favoritos</h2>

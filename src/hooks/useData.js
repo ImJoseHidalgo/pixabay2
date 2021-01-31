@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getData from "../../services/getData";
+import getData from "../services/getData";
 
 const useData = ({ page, keyword } = { keyword: localStorage.getItem('lastKeyword') || 'populars' }) => {
   const [imgs, setImgs] = useState([]);

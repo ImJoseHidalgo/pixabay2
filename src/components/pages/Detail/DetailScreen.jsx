@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GetImgData from '../../../services/GetImgData';
 import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
-import { Redirect, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import HeaderSearch from '../../ui/HeaderSearch';
 import Loading from '../../ui/Loading';
 
 const DetailScreen = ({ history }) => {
-  const [inpKeyword, setInpKeyword] = useState('');
 
   const { id } = useParams();
   const { loading, img }= GetImgData(id);
 
   const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = img;
-  
   const handleSearch = (inpKeyword) => {
-    setInpKeyword(inpKeyword);
+    console.log(inpKeyword);
     localStorage.setItem('page', 1);
     history.push(`/search/${inpKeyword}/1`);
   };
 
   window.scrollTo(0, 0);
+  
+  let tag;
+  (tags) && (tag = tags?.split(','));
 
   return (
     <>
@@ -56,7 +57,9 @@ const DetailScreen = ({ history }) => {
           <div className="image-data">
             <h2>Detalles de la imagen</h2>
             <h2>Vistas: <span>{views}</span></h2>
-            <h2>Categorias: <span>{tags}</span></h2>
+            <h2>Categorias: <span>{tag?.map(el => {
+                                    return <Link to={`/search/${el.trim()}/1`} key={el}>{el},</Link>
+                                  })}</span></h2>
             <h2>favoritos: <span>{favorites}</span></h2>
             <h2>Descargas: <span>{downloads}</span></h2>
           </div>

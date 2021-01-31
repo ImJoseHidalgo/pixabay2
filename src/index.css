@@ -28,6 +28,10 @@ h1, h2, h3, h4, p, a, li, input, button {
 main {
   text-align: center;
 }
+.active {
+  color: #666666;
+  text-decoration: none;
+}
 .loading {
   min-height: 60vh;
   display: flex;
@@ -411,6 +415,14 @@ main span:hover {
   text-align: end;
   overflow: hidden;
 }
+.image-detail .right .image-data h2 span a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #000;
+}
+.image-detail .right .image-data h2 span a:hover {
+  text-decoration: underline;
+}
 
 /* FOOTER */
 footer {
@@ -579,4 +591,34 @@ footer .author a:hover {
 .auth__loginScreen p:hover {
   color: #000;
   text-decoration: underline;
+}
+
+/* Favorites
+==================== */
+.favorites__logout {
+  min-height: calc(100vh - 9rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.favorites__logout h1 {
+  font-size: 3rem;
+  margin-top: -9rem;
+}
+.favorites__logout a {
+  font-size: 3rem;
+  color: #333;
+  margin-top: 2rem;
+  font-weight: 500;
+}
+.favorites {
+  min-height: calc(100vh - 9rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.favorites h1 {
+  font-size: 3rem;
+  margin-top: -9rem;
 }

@@ -24,7 +24,7 @@ export const Buscador = ({ handleSearch }) => {
         type="tex"
         value={keyword}
         onChange={handleChange} />
-      <button className='searchImage'><img src={iconLupa} /></button>
+      <button className='searchImage'><img src={iconLupa} alt='icon-search' /></button>
     </form>
   )
 }

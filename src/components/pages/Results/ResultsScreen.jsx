@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { BotonPaginacion } from '../../ui/BotonPaginacion';
 import DataGridItem from '../../ui/DataGridItem';
 import HeaderSearch from '../../ui/HeaderSearch';
-import useData from '../../hooks/useData';
+import useData from '../../../hooks/useData';
 import Loading from '../../ui/Loading';
 
 export const ResultsScreen = ({ history }) => {
   const {keyword, page} = useParams();
 
-  const [inpKeyword, setInpKeyword] = useState('');
-  
   const { loading, imgs } = useData({keyword, page});
   
   const handleSearch = (inpKeyword) => {
-    setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
     history.push(`/search/${inpKeyword}/1`);
   }

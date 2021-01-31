@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DataGridItem from '../../ui/DataGridItem';
-import useData from '../../hooks/useData';
+import useData from '../../../hooks/useData';
 import HeaderHomeSearch from '../../ui/HeaderHomeSearch';
 import Landing from '../../ui/Landing';
 import Loading from '../../ui/Loading';
 
-const HomeScreen = ({ history }) => {
-  const [keyword, setKeyword] = useState('');
-
+const HomeScreen = ({ history, props }) => {
   const {loading, imgs} = useData();
 
   const handleSearch = (keyword) => {
-    setKeyword(keyword);
     localStorage.setItem('page', 1);
     history.push(`/search/${keyword}/1`);
   }
   
-  console.log(loading);
   return (<>
     <HeaderHomeSearch handleSearch={handleSearch} />
     <Landing />

@@ -1,25 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Buscador } from './Buscador';
 import logo from '../../icons/logo-Pixabay.png';
 import arrow from '../../icons/arrow.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../actions/auth';
 
 export const HeaderSearch = ({ handleSearch }) => {
+  const { logged } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  
+  const handleLogout = () => {
+    dispatch(logout());
+  }
+  
   window.scrollTo(0, 0);
   return (
     <header className='header-search'>
-      <Link to='/' >
-        <img src={logo} alt='logo' />
-      </Link>
+      <Link to='/' ><img src={logo} alt='logo' /></Link>
       <Buscador handleSearch={handleSearch} />
-      <div className="login">
-        <Link to='/favorites'><h2 className='favorites'>Favoritos</h2></Link>
-        <Link to='/login'><h2 className='favorites'>Login</h2></Link>
-        <div className="user">
-          <img src={arrow} alt='arrow' />
-          <img src='https://lh3.googleusercontent.com/ogw/ADGmqu8qKX7aA0JAA5IaxP_nRShl8Pb1gsG7vV_lt4G-sA=s32-c-mo' alt='user' />
-        </div>
-      </div>
+      {!logged
+        ? <div className="login">
+            <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>
+            <Link to='/login'><h2 className='favorites'>Login</h2></Link>
+          </div>
+        : <div className="login">
+            <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>
+            <div className="user" onClick={handleLogout}>
+              <img src={arrow} alt='arrow' />
+              <img src='https://lh3.googleusercontent.com/ogw/ADGmqu8qKX7aA0JAA5IaxP_nRShl8Pb1gsG7vV_lt4G-sA=s32-c-mo' alt='user' />
+            </div>
+          </div>
+      }
     </header>
   )
 }

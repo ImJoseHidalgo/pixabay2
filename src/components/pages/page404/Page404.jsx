@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
-// import { useLocation } from 'wouter'
+import React from 'react';
 import HeaderSearch from '../../ui/HeaderSearch';
 import './styles.css';
 
 const Page404 = ({ history }) => {
-  const [inpKeyword, setInpKeyword] = useState('');
 
   const handleSearch = (inpKeyword) => {
-    setInpKeyword(inpKeyword);
     localStorage.setItem('page', 1);
     history.push(`/search/${inpKeyword}/1`);
   }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { login } from '../../../actions/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { startGoogleLogin, startLoginEmailPassword } from '../../../actions/auth';
 import { useForm } from '../../../hooks/useForm';
 
 import googleIcon from '../../../icons/google.svg';
@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 const LoginScreen = () => {
 
   const dispatch = useDispatch();
+  const { loading } = useSelector(state => state.ui)
 
   const [ formValues, handleInputChange ] = useForm({
     email: '',
@@ -21,7 +22,12 @@ const LoginScreen = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(12345, 'joselo'));
+    dispatch(startLoginEmailPassword(email, password));
+    console.log(email, password);
+  }
+
+  const handleGoogleLogin = () => {
+    dispatch(startGoogleLogin());
   }
 
   return (
@@ -31,7 +37,7 @@ const LoginScreen = () => {
           <img src={logo} alt="pixabay-logo"/>
         </div>
         <div className="auth__socials">
-          <div className="auth__socials-google">
+          <div className="auth__socials-google" onClick={handleGoogleLogin} >
             <div className="container">
               <img src={googleIcon} alt="google icon"/>
               <h2>Iniciar sesión con Google</h2>
@@ -49,8 +55,8 @@ const LoginScreen = () => {
         </div>
         <input type="email" placeholder='Email' name='email' value={email} onChange={handleInputChange} />
         <input type="password" placeholder='Contraseña' name='password' value={password} onChange={handleInputChange} />
-        <button type='submit' >Iniciar Sesión</button>
-        <Link to='/'><p>Crear una cuenta nueva.</p></Link>
+        <button type='submit' disabled={loading}>Iniciar Sesión</button>
+        <Link to='/register'><p>Crear una cuenta nueva.</p></Link>
       </form>
     </div>
   )

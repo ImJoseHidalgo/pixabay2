@@ -1,12 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { firebase } from "../firebase/firebaseConfig";
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginScreen from '../components/pages/Login/LoginScreen';
+import RegisterScreen from '../components/pages/Register/RegisterScreen';
 import DashboardRoutes from './DashboardRoutes';
 import PrivateRoute from './PrivateRoute';
+import { login } from '../actions/auth';
 
 const AppRouter = () => {
+
+  const dispatch = useDispatch();
+
   const { logged } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if(user?.uid) {
+        dispatch(login(user.uid, user.displayName));
+      }
+    })
+  }, [dispatch]);
 
   return (
     <Router>
@@ -15,6 +29,11 @@ const AppRouter = () => {
           <PrivateRoute 
             exact path='/login' 
             component={LoginScreen} 
+            isAuthenticated={logged} 
+          />
+          <PrivateRoute 
+            exact path='/register' 
+            component={RegisterScreen} 
             isAuthenticated={logged} 
           />
           <Route 

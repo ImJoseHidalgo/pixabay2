@@ -1,17 +1,18 @@
 import React from 'react';
 import { Buscador } from './Buscador';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../../actions/auth';
+import iconUser from '../../icons/icon-user.png';
 import logo from '../../icons/logo-Pixabay.png';
 import arrow from '../../icons/arrow.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../actions/auth';
 
 export const HeaderHomeSearch = ({ handleSearch }) => {
   const { logged } = useSelector(state => state.auth);
   const dispatch = useDispatch();
   
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(startLogout());
   }
 
   return (
@@ -27,7 +28,7 @@ export const HeaderHomeSearch = ({ handleSearch }) => {
               <Link to='/favorites'><h2 className='favorites'>Favoritos</h2></Link>
               <div className="user" onClick={handleLogout}>
                 <img src={arrow} alt='arrow' />
-                <img src='https://lh3.googleusercontent.com/ogw/ADGmqu8qKX7aA0JAA5IaxP_nRShl8Pb1gsG7vV_lt4G-sA=s32-c-mo' alt='user' />
+                <img src={iconUser} alt='user' />
               </div>
             </div>
         }

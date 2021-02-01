@@ -556,6 +556,9 @@ footer .author a:hover {
   width: 100%;
   padding: 0 1rem;
 }
+.auth__loginScreen .text.register h2 {
+  margin: 0rem 0 3rem;
+}
 .auth__loginScreen .text h2 {
   position: relative;
   margin: 2rem 0 3rem;
@@ -581,6 +584,9 @@ footer .author a:hover {
   width: 22%;
   height: .2rem;
   border-radius: 5rem;
+}
+.auth__loginScreen .text h2 span {
+  font-size: 2rem;
 }
 .auth__loginScreen p {
   cursor: pointer;

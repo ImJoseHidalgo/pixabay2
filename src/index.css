@@ -305,6 +305,7 @@ main span:hover {
   color: #fff;
   transition: .3s;
   padding-bottom: 1rem;
+  cursor: pointer;
 }
 .image-detail .left .add-favorite h2 {
   width: 20rem;

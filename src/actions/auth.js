@@ -1,6 +1,8 @@
 import { firebase, googleAuthProvider } from '../firebase/firebaseConfig';
+import Swal from 'sweetalert2';
 import { types } from "../types/types";
 import { finishLoading, startLoading } from './ui';
+import { imgLogout, startLoadingImgs } from './imgs';
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -14,9 +16,22 @@ export const startLoginEmailPassword = (email, password) => {
           user.displayName
         ));
         dispatch(finishLoading());
+        dispatch(startLoadingImgs(user.uid))
       })
       .catch(err => {
-        console.log(err);
+        if(err.code === 'auth/wrong-password') {
+          Swal.fire({
+            title: 'La contraseña es incorrecta',
+            icon: 'error',
+            confirmButtonText: 'Probar nuevamente'
+          })
+        } else if(err.code === 'auth/user-not-found') {
+          Swal.fire({
+            title: 'No se encontro un usuario registrado con ese correo',
+            icon: 'error',
+            confirmButtonText: 'Probar nuevamente'
+          })
+        }
         dispatch(finishLoading());
       });
   }
@@ -27,9 +42,17 @@ export const startRegisterWithEmailPassword = (email, password, userName) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(async({user}) => {
         await user.updateProfile({ displayName: userName });
-        console.log(user);
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        if(err.code === 'auth/weak-password') {
+          Swal.fire({
+            title: 'La contraseña debe tener 6 caracteres como minimo',
+            icon: 'error',
+            confirmButtonText: 'Probar nuevamente'
+          })
+        }
+        dispatch(finishLoading());
+      });
   }
 }
 
@@ -39,18 +62,22 @@ export const startGoogleLogin = () => {
       .then(({user}) => {
         dispatch(login(
           user.uid,
-          user.displayName
+          user.displayName,
+          user.photoURL
         ))
+        dispatch(startLoadingImgs(user.uid))
       });
   }
 }
 
-export const login = (uid, displayName) => {
+export const login = (uid, displayName, photoURL) => {
+  // dispatch(startLoadingImgs(uid))
   return {
     type: types.login,
     payload: {
       uid,
-      displayName
+      displayName,
+      photoURL
     }
   }
 }
@@ -59,6 +86,7 @@ export const startLogout = () => {
   return async(dispatch) => {
     await firebase.auth().signOut();
     dispatch(logout());
+    dispatch(imgLogout());
   }
 }
 

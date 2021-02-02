@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GetImgData from '../../../services/GetImgData';
 import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
 import { Link, useParams } from 'react-router-dom';
 import HeaderSearch from '../../ui/HeaderSearch';
 import Loading from '../../ui/Loading';
+import { startDeleting, startNewFavorite } from '../../../actions/imgs';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadImgs } from '../../../helpers/loadImgs';
 
 const DetailScreen = ({ history }) => {
+  const path = history.location.pathname;
+  const dispatch = useDispatch();
+
+  const { uid, logged } = useSelector(state => state.auth);
 
   const { id } = useParams();
   const { loading, img }= GetImgData(id);
@@ -23,6 +30,54 @@ const DetailScreen = ({ history }) => {
   let tag;
   (tags) && (tag = tags?.split(','));
 
+  // const AddFavorite = () => {
+  //   if(logged) {
+  //     dispatch(startNewFavorite(path, shortImg));
+  //   } else {
+  //     alert('Debes iniciar sesion para guardar imagenes')
+  //   }
+  // }
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAddFavorite = async() => {
+    if(logged) {
+      const nose = await loadImgs(uid);
+      const a = nose.find(img => img.path === path) || [];
+      if(a.length !== 0) {
+        console.log('no agregado');
+      } else {
+        dispatch(startNewFavorite(path, shortImg));
+        console.log('agregado');
+        setIsFavorite(true);
+      }
+    } else {
+      alert('Debes iniciar sesion para guardar imagenes')
+    }
+  }
+
+  const isFavIcon = async() =>{
+    const nose = await loadImgs(uid);
+    const a = nose.find(img => img.path === path) || [];
+    if(a.length !== 0) {
+      setIsFavorite(true);
+      console.log('true');
+    } else {
+      setIsFavorite(false);
+      console.log('false');
+    }
+  }
+  useEffect(() => {
+    isFavIcon()
+  }, [isFavorite])
+
+  const handleRemoveFavorite = async() => {
+    const nose = await loadImgs(uid);
+    const a = nose.find(img => img.path === path) || [];
+    dispatch(startDeleting(a.id))
+    setIsFavorite(false)
+  }
+
   return (
     <>
       <HeaderSearch handleSearch={handleSearch} />
@@ -33,10 +88,16 @@ const DetailScreen = ({ history }) => {
             : <img src={shortImg} alt={tags} />
           }
           {/* <img src={largeImg} alt={tags} /> */}
-          <div className="add-favorite">
-            <h2>Añadir a favoritos</h2>
-            <img src={likeIcon} alt='like icon' />
-          </div>
+          {isFavorite
+            ? <div className="add-favorite" onClick={handleRemoveFavorite}>
+                <h2>Quitar de favoritos</h2>
+                <img src={likeIcon} alt='like icon' />
+              </div>
+            : <div className="add-favorite" onClick={handleAddFavorite}>
+                <h2>Añadir a favoritos</h2>
+                <img src={likeIcon} alt='like icon' />
+              </div>
+          }
         </div>
         <div className="right">
           <div className="image-user">

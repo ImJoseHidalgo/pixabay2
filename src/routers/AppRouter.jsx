@@ -7,6 +7,7 @@ import RegisterScreen from '../components/pages/Register/RegisterScreen';
 import DashboardRoutes from './DashboardRoutes';
 import PrivateRoute from './PrivateRoute';
 import { login } from '../actions/auth';
+import { startLoadingImgs } from '../actions/imgs';
 
 const AppRouter = () => {
 
@@ -15,9 +16,11 @@ const AppRouter = () => {
   const { logged } = useSelector(state => state.auth);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged( async(user) => {
       if(user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
+        
+        dispatch(startLoadingImgs(user.uid));
       }
     })
   }, [dispatch]);

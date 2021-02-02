@@ -8,7 +8,7 @@ import logo from '../../icons/logo-Pixabay.png';
 import arrow from '../../icons/arrow.svg';
 
 export const HeaderSearch = ({ handleSearch }) => {
-  const { logged } = useSelector(state => state.auth);
+  const { logged, photoURL, name } = useSelector(state => state.auth);
   const dispatch = useDispatch();
   
   const handleLogout = () => {
@@ -29,7 +29,7 @@ export const HeaderSearch = ({ handleSearch }) => {
             <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>
             <div className="user" onClick={handleLogout}>
               <img src={arrow} alt='arrow' />
-              <img src={iconUser} alt='user' />
+              <img src={photoURL || iconUser} alt={name} />
             </div>
           </div>
       }

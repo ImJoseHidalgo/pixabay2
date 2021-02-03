@@ -20,7 +20,6 @@ const DetailScreen = ({ history }) => {
 
   const { tags, webformatURL: shortImg, largeImageURL: largeImg, views, downloads, favorites, user, userImageURL: userImg } = img;
   const handleSearch = (inpKeyword) => {
-    console.log(inpKeyword);
     localStorage.setItem('page', 1);
     history.push(`/search/${inpKeyword}/1`);
   };
@@ -44,11 +43,8 @@ const DetailScreen = ({ history }) => {
     if(logged) {
       const nose = await loadImgs(uid);
       const a = nose.find(img => img.path === path) || [];
-      if(a.length !== 0) {
-        console.log('no agregado');
-      } else {
+      if(a.length === 0) {
         dispatch(startNewFavorite(path, shortImg));
-        console.log('agregado');
         setIsFavorite(true);
       }
     } else {
@@ -61,10 +57,8 @@ const DetailScreen = ({ history }) => {
     const a = nose.find(img => img.path === path) || [];
     if(a.length !== 0) {
       setIsFavorite(true);
-      console.log('true');
     } else {
       setIsFavorite(false);
-      console.log('false');
     }
   }
   useEffect(() => {
@@ -88,7 +82,7 @@ const DetailScreen = ({ history }) => {
             : <img src={shortImg} alt={tags} />
           }
           {/* <img src={largeImg} alt={tags} /> */}
-          {isFavorite
+          {/* {isFavorite
             ? <div className="add-favorite" onClick={handleRemoveFavorite}>
                 <h2>Quitar de favoritos</h2>
                 <img src={likeIcon} alt='like icon' />
@@ -97,7 +91,7 @@ const DetailScreen = ({ history }) => {
                 <h2>Añadir a favoritos</h2>
                 <img src={likeIcon} alt='like icon' />
               </div>
-          }
+          } */}
         </div>
         <div className="right">
           <div className="image-user">
@@ -112,8 +106,17 @@ const DetailScreen = ({ history }) => {
             <h2>Libre para uso comercial</h2>
           </div>
           <div className="botones-descarga">
-            <a href={shortImg + '?attachment'} >Descargar Mediano</a>
-            <a href={largeImg + '?attachment'} >Descargar Grande</a>
+          {isFavorite
+            ? <div className="add-favorite" onClick={handleRemoveFavorite}>
+                <h2>Quitar de favoritos</h2>
+                <img src={likeIcon} alt='like icon' />
+              </div>
+            : <div className="add-favorite" onClick={handleAddFavorite}>
+                <h2>Añadir a favoritos</h2>
+                <img src={likeIcon} alt='like icon' />
+              </div>
+          }
+            <a href={largeImg + '?attachment'} >Descargar Imagen HD</a>
           </div>
           <div className="image-data">
             <h2>Detalles de la imagen</h2>

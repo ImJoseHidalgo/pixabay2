@@ -83,6 +83,7 @@ main {
 .header-search .login {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .header-search .login .favorites {
   font-weight: 500;
@@ -134,6 +135,7 @@ main {
 .header-home-search .login {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .header-home-search .login .favorites {
   font-weight: 500;
@@ -146,6 +148,31 @@ main {
   height: 5rem;
   border-radius: 50%;
 }
+.header-search .login .logout__button,
+.header-home-search .login .logout__button {
+  cursor: pointer;
+  position: absolute;
+  height: 6rem;
+  width: 7.5rem;
+  right: 0;
+  top: 53%;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, .1);
+  border-top: 0;
+  /* background: #E8E8E8; */
+  background: #F3F3F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-search .login .logout__button:hover,
+.header-home-search .login .logout__button:hover {
+  box-shadow: 1px 6px 12px rgba(0, 0, 0, .1);
+}
+.header-search .login .logout__button,
+.header-home-search .login .logout__button h2 {
+  font-weight: 400;
+}
 .header-home-search .login .user {
   display: flex;
   align-items: center;
@@ -156,6 +183,7 @@ main {
   height: 1.2rem;
   margin: 0 1rem;
 }
+
 form {
   width: 70rem;
   position: relative;
@@ -296,33 +324,6 @@ main span:hover {
   object-fit: contain;
   /* background: red; */
 }
-.image-detail .left .add-favorite {
-  position: absolute;
-  top: calc(50% - 4rem);
-  right: -20rem;
-  background: rgba(0, 0, 0, .3);
-  border-radius: 2rem 0 0 2rem;
-  color: #fff;
-  transition: .3s;
-  padding-bottom: 1rem;
-  cursor: pointer;
-}
-.image-detail .left .add-favorite h2 {
-  width: 20rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.image-detail .left:hover .add-favorite {
-  right: 0;
-}
-.image-detail .left .add-favorite img {
-  width: 3rem;
-  height: 3rem;
-  filter: invert(1);
-  border-radius: 0;
-}
 
 .image-detail .right {
   /* background: blue; */
@@ -383,6 +384,31 @@ main span:hover {
 .image-detail .right .botones-descarga a:hover {
   background: #444;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+}
+.image-detail .right .botones-descarga .add-favorite {
+  cursor: pointer;
+  background: #fff;
+  padding: 1rem 0;
+  width: 26rem;
+  border-radius: 5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.image-detail .right .botones-descarga .add-favorite:hover {
+  background: #F3F3F3;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+.image-detail .right .botones-descarga .add-favorite img {
+  width: 2rem;
+  margin-right: 1rem;
+}
+.image-detail .right .botones-descarga .add-favorite h2 {
+  color: #000;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 400;
 }
 .image-detail .right .image-data {
   background: #fff;
@@ -628,4 +654,9 @@ footer .author a:hover {
 .favorites h1 {
   font-size: 3rem;
   margin-top: -9rem;
+}
+h5 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  font-weight: 500;
 }

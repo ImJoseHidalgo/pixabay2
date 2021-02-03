@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Buscador } from './Buscador';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,9 +10,13 @@ import arrow from '../../icons/arrow.svg';
 export const HeaderSearch = ({ handleSearch }) => {
   const { logged, photoURL, name } = useSelector(state => state.auth);
   const dispatch = useDispatch();
+  const [logoutButton, setLogoutButton] = useState(false);
   
   const handleLogout = () => {
     dispatch(startLogout());
+  }
+  const handleLogoutButton = () => {
+    (logoutButton) ? setLogoutButton(false) : setLogoutButton(true);
   }
   
   window.scrollTo(0, 0);
@@ -27,10 +31,13 @@ export const HeaderSearch = ({ handleSearch }) => {
           </div>
         : <div className="login">
             <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>
-            <div className="user" onClick={handleLogout}>
+            <div className="user" onClick={handleLogoutButton}>
               <img src={arrow} alt='arrow' />
               <img src={photoURL || iconUser} alt={name} />
             </div>
+            {logoutButton && <div className="logout__button" onClick={handleLogout}>
+              <h2>Cerrar Sesión</h2>
+            </div>}
           </div>
       }
     </header>

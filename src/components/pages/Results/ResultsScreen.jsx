@@ -32,8 +32,9 @@ export const ResultsScreen = ({ history }) => {
     {loading 
       ? <Loading />
       : <section className='imgs-container'>
-      {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
-    </section>}
+        {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
+        </section>
+    }
     <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
   </>)
 }

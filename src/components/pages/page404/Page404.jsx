@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderSearch from '../../ui/HeaderSearch';
-import './styles.css';
+import HeaderSearch from '../../ui/Search/HeaderSearch';
+import { Container } from './Page404.styles';
 
 const Page404 = ({ history }) => {
 
@@ -12,16 +12,10 @@ const Page404 = ({ history }) => {
   return (
     <div>
       <HeaderSearch handleSearch={handleSearch} />
-      <div className="p404__container">
-        <div className="cont_principal  cont_error_active">
-          <div className="cont_error">
-            <h1>Oops</h1>
-            <p>The Page you're looking for isn't here.</p>
-          </div>
-          <div className="cont_aura_1"></div>
-          <div className="cont_aura_2"></div>
-        </div>
-      </div>
+      <Container>
+        <h1>Oops</h1>
+        <p>The Page you're looking for isn't here.</p>
+      </Container>
     </div >
   )
 }

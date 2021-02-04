@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ContainerStyles } from './DataGridItem.styles';
 
 export const DataGridItem = ({ id, tag, img, path }) => {
   
   return (
     <Link to={id ? `/img/${id}` : path}>
-      <div className='img-container animate__animated animate__fadeIn'>
+      <ContainerStyles className='animate__animated animate__fadeIn'>
         <img src={img} alt={tag} />
-      </div>
+      </ContainerStyles>
     </Link>
   )
 }

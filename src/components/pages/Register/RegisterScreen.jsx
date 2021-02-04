@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { startRegisterWithEmailPassword } from '../../../actions/auth';
 import { useForm } from '../../../hooks/useForm';
 import logo from '../../../icons/logo-Pixabay.png';
+import { LoginStyles } from '../Login/Login.styles';
 
 const RegisterScreen = () => {
 
@@ -31,7 +32,7 @@ const RegisterScreen = () => {
   }
 
   return (
-    <div className='auth__loginScreen'>
+    <LoginStyles>
       <form onSubmit={handleRegister}>
         <div className="title">
           <img src={logo} alt="pixabay-logo"/>
@@ -47,7 +48,7 @@ const RegisterScreen = () => {
         <Link to='/login'><p>Ya tienes una cuenta?</p></Link>
         <p>Al registrarte, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
       </form>
-    </div>
+    </LoginStyles>
   )
 }
 

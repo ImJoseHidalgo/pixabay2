@@ -1,9 +1,10 @@
 import React from 'react';
-import DataGridItem from '../../ui/DataGridItem';
+import DataGridItem from '../../ui/DataGridItem/DataGridItem';
 import useData from '../../../hooks/useData';
-import HeaderHomeSearch from '../../ui/HeaderHomeSearch';
-import Landing from '../../ui/Landing';
-import Loading from '../../ui/Loading';
+import HeaderHomeSearch from '../../ui/HomeSearch/HeaderHomeSearch';
+import Landing from '../../ui/Landing/Landing';
+import Loading from '../../ui/Loading/Loading';
+import { GridStyles } from './HomeScreen.styles';
 
 const HomeScreen = ({ history, props }) => {
   const {loading, imgs} = useData();
@@ -18,9 +19,9 @@ const HomeScreen = ({ history, props }) => {
     <Landing />
     {loading 
       ? <Loading />
-      : <section className='imgs-container'>
+      : <GridStyles>
       {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
-    </section>}
+    </GridStyles>}
   </>)
 }
 

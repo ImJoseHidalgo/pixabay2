@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Buscador } from './Buscador';
+import { Buscador } from '../Buscador/Buscador';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { startLogout } from '../../actions/auth';
-import iconUser from '../../icons/icon-user.png';
-import logo from '../../icons/logo-Pixabay.png';
-import arrow from '../../icons/arrow.svg';
+import { startLogout } from '../../../actions/auth';
+import iconUser from '../../../icons/icon-user.png';
+import logo from '../../../icons/logo-Pixabay.png';
+import arrow from '../../../icons/arrow.svg';
+import { HeaderLogin, SearchComponent, HeaderHSearch, LogoImg } from "./HomeSearch.styles";
 
 export const HeaderHomeSearch = ({ handleSearch }) => {
   const { logged, photoURL, name } = useSelector(state => state.auth);
@@ -20,30 +21,30 @@ export const HeaderHomeSearch = ({ handleSearch }) => {
   }
 
   return (
-    <header className='header-home-search'>
+    <HeaderHSearch>
       <nav>
-        <img src={logo} alt='logo' />
+        <LogoImg src={logo} alt='logo' />
         {!logged
-          ? <div className="login">
+          ? <HeaderLogin>
               <Link to='/favorites'><h2 className='favorites'>Favoritos</h2></Link>
               <Link to='/login'><h2 className='favorites'>Login</h2></Link>
-            </div>
-          : <div className="login">
+            </HeaderLogin>
+          : <HeaderLogin>
               <Link to='/favorites'><h2 className='favorites'>Favoritos</h2></Link>
               <div className="user" onClick={handleLogoutButton}>
                 <img src={arrow} alt='arrow' />
                 <img src={photoURL || iconUser} alt={name} />
               </div>
-              {logoutButton && <div className="logout__button" onClick={handleLogout}>
+              {logoutButton && <div className="logout__button animate__animated animate__fadeIn" onClick={handleLogout}>
                 <h2>Cerrar Sesión</h2>
               </div>}
-            </div>
+            </HeaderLogin>
         }
       </nav>
-      <div className='buscador'>
+      <SearchComponent>
         <Buscador handleSearch={handleSearch} />
-      </div>
-    </header>
+      </SearchComponent>
+    </HeaderHSearch>
   )
 }
 export default HeaderHomeSearch;

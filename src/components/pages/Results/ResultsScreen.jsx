@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { BotonPaginacion } from '../../ui/BotonPaginacion';
-import DataGridItem from '../../ui/DataGridItem';
-import HeaderSearch from '../../ui/HeaderSearch';
+import { BotonPaginacion } from '../../ui/BotonPaginacion/BotonPaginacion';
+import DataGridItem from '../../ui/DataGridItem/DataGridItem';
+import HeaderSearch from '../../ui/Search/HeaderSearch';
 import useData from '../../../hooks/useData';
-import Loading from '../../ui/Loading';
+import Loading from '../../ui/Loading/Loading';
+import { GridStyles } from './ResultsScreen.styles';
 
 export const ResultsScreen = ({ history }) => {
   const {keyword, page} = useParams();
@@ -31,9 +32,9 @@ export const ResultsScreen = ({ history }) => {
     <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
     {loading 
       ? <Loading />
-      : <section className='imgs-container'>
-        {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
-        </section>
+      : <GridStyles>
+          {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
+        </GridStyles>
     }
     <BotonPaginacion prev={prevPage} next={nextPage} page={page} />
   </>)

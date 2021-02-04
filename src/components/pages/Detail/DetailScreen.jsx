@@ -3,11 +3,12 @@ import GetImgData from '../../../services/GetImgData';
 import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
 import { Link, useParams } from 'react-router-dom';
-import HeaderSearch from '../../ui/HeaderSearch';
-import Loading from '../../ui/Loading';
+import HeaderSearch from '../../ui/Search/HeaderSearch';
+import Loading from '../../ui/Loading/Loading';
 import { startDeleting, startNewFavorite } from '../../../actions/imgs';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadImgs } from '../../../helpers/loadImgs';
+import { DetailStyles, LeftStyles, RightStyles, UserImgStyles, LicenseStyles, BotonesStyles, AddFavoriteStyles, ImageDataStyles } from './DetailScreen.styles';
 
 const DetailScreen = ({ history }) => {
   const path = history.location.pathname;
@@ -28,15 +29,7 @@ const DetailScreen = ({ history }) => {
   
   let tag;
   (tags) && (tag = tags?.split(','));
-
-  // const AddFavorite = () => {
-  //   if(logged) {
-  //     dispatch(startNewFavorite(path, shortImg));
-  //   } else {
-  //     alert('Debes iniciar sesion para guardar imagenes')
-  //   }
-  // }
-
+  
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAddFavorite = async() => {
@@ -75,50 +68,39 @@ const DetailScreen = ({ history }) => {
   return (
     <>
       <HeaderSearch handleSearch={handleSearch} />
-      <div className="image-detail">
-        <div className="left animate__animated animate__fadeIn">
+      <DetailStyles>
+        <LeftStyles className="animate__animated animate__fadeIn">
           {loading 
             ? <Loading />
             : <img src={shortImg} alt={tags} />
           }
-          {/* <img src={largeImg} alt={tags} /> */}
-          {/* {isFavorite
-            ? <div className="add-favorite" onClick={handleRemoveFavorite}>
-                <h2>Quitar de favoritos</h2>
-                <img src={likeIcon} alt='like icon' />
-              </div>
-            : <div className="add-favorite" onClick={handleAddFavorite}>
-                <h2>Añadir a favoritos</h2>
-                <img src={likeIcon} alt='like icon' />
-              </div>
-          } */}
-        </div>
-        <div className="right">
-          <div className="image-user">
+        </LeftStyles>
+        <RightStyles>
+          <UserImgStyles className="animate__animated animate__fadeIn">
             <img src={userImg || iconUser} alt={user} />
             <div className="image-user-name">
               <h3>Autor:</h3>
               <h2>{user}</h2>
             </div>
-          </div>
-          <div className="licence">
+          </UserImgStyles>
+          <LicenseStyles>
             <h2>Licencia por Pixabay</h2>
             <h2>Libre para uso comercial</h2>
-          </div>
-          <div className="botones-descarga">
+          </LicenseStyles>
+          <BotonesStyles className="animate__animated animate__fadeIn">
           {isFavorite
-            ? <div className="add-favorite" onClick={handleRemoveFavorite}>
+            ? <AddFavoriteStyles onClick={handleRemoveFavorite}>
                 <h2>Quitar de favoritos</h2>
                 <img src={likeIcon} alt='like icon' />
-              </div>
-            : <div className="add-favorite" onClick={handleAddFavorite}>
+              </AddFavoriteStyles>
+            : <AddFavoriteStyles onClick={handleAddFavorite}>
                 <h2>Añadir a favoritos</h2>
                 <img src={likeIcon} alt='like icon' />
-              </div>
+              </AddFavoriteStyles>
           }
             <a href={largeImg + '?attachment'} >Descargar Imagen HD</a>
-          </div>
-          <div className="image-data">
+          </BotonesStyles>
+          <ImageDataStyles>
             <h2>Detalles de la imagen</h2>
             <h2>Vistas: <span>{views}</span></h2>
             <h2>Categorias: <span>{tag?.map(el => {
@@ -126,9 +108,9 @@ const DetailScreen = ({ history }) => {
                                   })}</span></h2>
             <h2>favoritos: <span>{favorites}</span></h2>
             <h2>Descargas: <span>{downloads}</span></h2>
-          </div>
-        </div>
-      </div>
+          </ImageDataStyles>
+        </RightStyles>
+      </DetailStyles>
     </>
   )
 }

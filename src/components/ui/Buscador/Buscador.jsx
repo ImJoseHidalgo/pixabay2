@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import iconLupa from '../../icons/search.svg';
+import iconLupa from '../../../icons/search.svg';
 
 export const Buscador = ({ handleSearch }) => {
   const [keyword, setKeyword] = useState('');
@@ -24,7 +24,7 @@ export const Buscador = ({ handleSearch }) => {
         type="tex"
         value={keyword}
         onChange={handleChange} />
-      <button className='searchImage'><img src={iconLupa} alt='icon-search' /></button>
+      <button><img src={iconLupa} alt='icon-search' /></button>
     </form>
   )
 }

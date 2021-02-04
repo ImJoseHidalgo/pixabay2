@@ -5,7 +5,7 @@ import Favorites from '../components/pages/Favorites/Favorites'
 import HomeScreen from '../components/pages/Home/HomeScreen'
 import Page404 from '../components/pages/page404/Page404'
 import { ResultsScreen } from '../components/pages/Results/ResultsScreen'
-import Footer from '../components/ui/Footer'
+import Footer from '../components/ui/Footer/Footer'
 
 const DashboardRoutes = () => {
   return (

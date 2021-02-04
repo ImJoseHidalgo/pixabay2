@@ -1,10 +1,11 @@
 import React from 'react';
+import { LoadingStyles } from './Loading.styles';
 
 const Loading = () => {
   return (
-    <div className='loading'>
+    <LoadingStyles>
       <h1>Cargando...</h1>
-    </div>
+    </LoadingStyles>
   )
 }
 

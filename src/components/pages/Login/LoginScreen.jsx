@@ -7,6 +7,7 @@ import googleIcon from '../../../icons/google.svg';
 import facebookIcon from '../../../icons/facebook.svg';
 import logo from '../../../icons/logo-Pixabay.png';
 import { Link } from 'react-router-dom';
+import { LoginStyles, SocialsStyles } from './Login.styles';
 
 const LoginScreen = () => {
 
@@ -30,12 +31,12 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='auth__loginScreen'>
+    <LoginStyles>
       <form onSubmit={handleLogin}>
         <div className="title">
           <img src={logo} alt="pixabay-logo"/>
         </div>
-        <div className="auth__socials">
+        <SocialsStyles>
           <div className="auth__socials-google" onClick={handleGoogleLogin} >
             <div className="container">
               <img src={googleIcon} alt="google icon"/>
@@ -48,7 +49,7 @@ const LoginScreen = () => {
               <h2>Iniciar sesión con Facebook</h2>
             </div>
           </div>
-        </div>
+        </SocialsStyles>
         <div className="text">
           <h2>también puedes iniciar<br/>sesión con tu correo</h2>
         </div>
@@ -57,7 +58,7 @@ const LoginScreen = () => {
         <button type='submit' disabled={loading}>Iniciar Sesión</button>
         <Link to='/register'><p>Crear una cuenta nueva.</p></Link>
       </form>
-    </div>
+    </LoginStyles>
   )
 }
 

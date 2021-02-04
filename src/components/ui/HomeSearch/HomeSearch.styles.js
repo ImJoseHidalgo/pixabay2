@@ -13,12 +13,25 @@ export const HeaderHSearch = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+
+  @media only screen and (max-width: 600px) {
+    height: 100%;
+
+    nav {
+      height: 6rem;
+      padding: 0 2rem;
+    }
+  }
 `
 export const LogoImg = styled.img`
   width: 16rem;
   height: 5rem;
   object-fit: cover;
   cursor: pointer;
+
+  @media only screen and (max-width: 600px) {
+    width: 10rem;
+  }
 `
 
 export const HeaderLogin = styled.div`
@@ -41,6 +54,7 @@ export const HeaderLogin = styled.div`
   .logout__button {
     cursor: pointer;
     position: absolute;
+    z-index: 2;
     height: 6rem;
     width: 20rem;
     right: 0;
@@ -72,6 +86,26 @@ export const HeaderLogin = styled.div`
     width: 1.2rem;
     height: 1.2rem;
     margin: 0 1rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    a,
+    .favorites {
+      margin-bottom: .3rem;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+      font-size: 1.8rem;
+    }
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .logout__button {
+      height: 5rem;
+      width: 16rem;
+    }
   }
 `
 
@@ -114,5 +148,22 @@ export const SearchComponent = styled.div`
     width: 5rem;
     margin-bottom: -.2rem;
     border-radius: 5rem 0 0 5rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    height: 6rem;
+
+    form {
+      width: 28rem;
+      margin-left: -5rem
+    }
+    form input {
+      margin-left: 5rem;
+      height: 4rem;
+    }
+    form button {
+      height: 4rem;
+      margin-right: 5rem;
+    }
   }
 `

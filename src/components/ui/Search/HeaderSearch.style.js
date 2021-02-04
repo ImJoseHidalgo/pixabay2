@@ -41,6 +41,30 @@ export const HeaderHSearch = styled.header`
     margin-bottom: -.2rem;
     border-radius: 5rem 0 0 5rem;
   }
+
+  @media only screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo login"
+      "form form";
+    padding: 0 2rem;
+    height: 12rem;
+
+    form {
+      grid-area: form;
+      width: 28rem;
+      margin-left: 0rem
+    }
+    form input {
+      margin-left: 5rem;
+      height: 4rem;
+    }
+    form button {
+      height: 4rem;
+      margin-right: 5rem;
+    }
+  }
 `
 
 export const LogoImg = styled.img`
@@ -48,8 +72,15 @@ export const LogoImg = styled.img`
   height: 5rem;
   object-fit: cover;
   cursor: pointer;
+
+  @media only screen and (max-width: 600px) {
+    grid-area: logo;
+    width: 10rem;
+    margin-left: -6.5rem;
+  }
 `
 export const HeaderLogin = styled.div`
+  grid-area: login;
   display: flex;
   align-items: center;
   position: relative;
@@ -100,5 +131,27 @@ export const HeaderLogin = styled.div`
     width: 1.2rem;
     height: 1.2rem;
     margin: 0 1rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-left: .5rem;
+
+    a,
+    .favorites {
+      margin-bottom: .3rem;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+      font-size: 1.8rem;
+    }
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    .logout__button {
+      height: 5rem;
+      width: 16rem;
+    }
   }
 `

@@ -8,6 +8,13 @@ export const DetailStyles = styled.section`
   height: auto;
   padding: 0 3rem;
   margin: 3rem auto;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
 `
 export const LeftStyles = styled.div`
   position: relative;
@@ -22,10 +29,21 @@ export const LeftStyles = styled.div`
     width: 100%;
     object-fit: contain;
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    img {
+      border-radius: 2rem;
+    }
+  }
 `
 
 export const RightStyles = styled.div`
   width: 37rem;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const UserImgStyles = styled.div`
@@ -33,22 +51,35 @@ export const UserImgStyles = styled.div`
   align-items: center;
 
   img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  margin-right: 2rem;
-}
-  h3 {
-  font-weight: 400;
-  margin-top: -1rem;
-  text-align: start;
-}
-  h2 {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 2.4rem;
-  font-weight: 400;
-  text-align: start;
-}
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+    h3 {
+    font-weight: 400;
+    margin-top: -1rem;
+    text-align: start;
+  }
+    h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-align: start;
+  }
+
+  @media only screen and (max-width: 600px) {
+    img {
+      width: 7rem;
+      height: 7rem;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
 `
 
 export const LicenseStyles = styled.div`
@@ -61,6 +92,12 @@ export const LicenseStyles = styled.div`
     text-align: start;
     font-size: 2rem;
     font-weight: 400;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h2 {
+      font-size: 1.8rem;
+    }
   }
 `
 
@@ -87,6 +124,12 @@ export const BotonesStyles= styled.div`
   a:hover {
     background: #444;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+  }
+
+  @media only screen and (max-width: 600px) {
+    a {
+      font-size: 1.8rem;
+    }
   }
 `
 
@@ -116,6 +159,12 @@ export const AddFavoriteStyles = styled.div`
     text-decoration: none;
     font-size: 2rem;
     font-weight: 400;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h2 {
+      font-size: 1.8rem;
+    }
   }
 `
 
@@ -158,5 +207,14 @@ export const ImageDataStyles = styled.div`
   }
   h2 span a:hover {
     text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 600px) {
+    h2::first-child {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
   }
 `

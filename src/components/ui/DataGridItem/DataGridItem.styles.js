@@ -8,4 +8,10 @@ export const ContainerStyles = styled.div`
     margin-top: 1.5rem;
     object-fit: cover;
   }
+
+  @media only screen and (max-width: 600px) {
+    img {
+      margin-top: .8rem;
+    }
+  }
 `

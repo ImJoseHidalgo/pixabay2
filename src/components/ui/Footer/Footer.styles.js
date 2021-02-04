@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
   padding: 0 3rem;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0 2rem;
+  }
 `
 
 export const DescriptionStyled = styled.div`
@@ -32,6 +36,20 @@ export const DescriptionStyled = styled.div`
   a:hover {
     color: #000;
   }
+
+  @media only screen and (max-width: 600px) {
+    min-height: 30rem;
+
+    h2:first-child {
+      font-size: 2.4rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    a {
+      font-size: 1.6rem;
+    }
+  }
 `
 
 export const AuthorStyled = styled.div`
@@ -50,5 +68,18 @@ export const AuthorStyled = styled.div`
   }
   a:hover {
     color: #000;
+  }
+  @media only screen and (max-width: 600px) {
+    height: 8rem;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.6rem;
+    }
+    a {
+      font-size: 1.6rem;
+    }
   }
 `

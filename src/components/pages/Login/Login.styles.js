@@ -105,6 +105,10 @@ export const LoginStyles = styled.section`
     color: #000;
     text-decoration: underline;
   } */
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0 2rem;
+  }
 `
 
 export const SocialsStyles = styled.div`

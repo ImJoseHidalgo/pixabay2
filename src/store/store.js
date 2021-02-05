@@ -4,7 +4,8 @@ import { authReducer } from '../reducers/authReducer';
 import { imgsReducer } from '../reducers/imgsReducer';
 import { uiReducer } from '../reducers/uiReducer';
 
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+// const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const composeEnhancers = compose;
 
 const reducers = combineReducers({
   auth: authReducer,

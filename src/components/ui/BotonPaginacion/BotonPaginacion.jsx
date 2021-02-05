@@ -20,7 +20,7 @@ export const BotonPaginacion = ({ prev, next, page }) => {
       <ButtonsStyles>
         <button onClick={prev} >Anterior</button>
         <h2>{page}</h2>
-        <button onClick={next} >Siguiente</button>
+          <button onClick={next} disabled={(totalImgs > 20) ? false : true} >Siguiente</button>
       </ButtonsStyles>
       <h2>{totalImgs} imagenes encontradas</h2>
     </PaginacionStyles>

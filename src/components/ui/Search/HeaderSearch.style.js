@@ -50,6 +50,7 @@ export const HeaderHSearch = styled.header`
       "form form";
     padding: 0 2rem;
     height: 12rem;
+    text-align: start;
 
     form {
       grid-area: form;
@@ -76,7 +77,6 @@ export const LogoImg = styled.img`
   @media only screen and (max-width: 600px) {
     grid-area: logo;
     width: 10rem;
-    margin-left: -6.5rem;
   }
 `
 export const HeaderLogin = styled.div`
@@ -85,11 +85,24 @@ export const HeaderLogin = styled.div`
   align-items: center;
   position: relative;
 
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  a:hover {
+    /* color: #999; */
+  }
+
   .favorites {
-    font-weight: 500;
+    font-weight: 400;
+    padding: 1rem 2rem;
     font-size: 2rem;
-    margin-right: 2rem;
     cursor: pointer;
+    border-radius: 5rem;
+  }
+  .favorites:hover {
+    background: #F3F3F3;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .1);
   }
   img {
     width: 5rem;
@@ -100,11 +113,11 @@ export const HeaderLogin = styled.div`
   .logout__button {
     cursor: pointer;
     position: absolute;
-    height: 6rem;
-    width: 20rem;
+    padding: 1.3rem 0;
+    width: 21rem;
     right: 0;
     top: 120%;
-    border-radius: 1rem;
+    border-radius: 5rem;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, .1);
     border-top: 0;
     /* background: #E8E8E8; */
@@ -121,11 +134,13 @@ export const HeaderLogin = styled.div`
   .logout__button,
   .logout__button h2 {
     font-weight: 400;
+    font-size: 1.8rem;
   }
   .user {
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-left: 1rem;
   }
   .user img:first-child {
     width: 1.2rem;
@@ -139,7 +154,8 @@ export const HeaderLogin = styled.div`
     a,
     .favorites {
       margin-bottom: .3rem;
-      margin-right: 1rem;
+      margin-right: 0rem;
+      padding: .3rem .5rem;
       text-decoration: none;
       font-weight: 500;
       color: #000;
@@ -150,8 +166,11 @@ export const HeaderLogin = styled.div`
       height: 3.5rem;
     }
     .logout__button {
-      height: 5rem;
-      width: 16rem;
+      height: 4.5rem;
+      width: 15rem;
+    }
+    .user {
+      margin-left: 0rem;
     }
   }
 `

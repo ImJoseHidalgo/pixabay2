@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 import { login } from '../actions/auth';
 import { startLoadingImgs } from '../actions/imgs';
 
+
 const AppRouter = () => {
 
   const dispatch = useDispatch();

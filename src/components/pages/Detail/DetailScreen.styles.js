@@ -34,6 +34,7 @@ export const LeftStyles = styled.div`
     width: 100%;
     img {
       border-radius: 2rem;
+      min-height: 10rem;
     }
   }
 `
@@ -70,14 +71,14 @@ export const UserImgStyles = styled.div`
 
   @media only screen and (max-width: 600px) {
     img {
-      width: 7rem;
-      height: 7rem;
+      width: 6rem;
+      height: 6rem;
     }
     h3 {
       margin-top: 0;
     }
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   }
 `
@@ -95,6 +96,8 @@ export const LicenseStyles = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
+    padding: 1.5rem 2rem;
+    margin: 1rem 0;
     h2 {
       font-size: 1.8rem;
     }
@@ -127,6 +130,8 @@ export const BotonesStyles= styled.div`
   }
 
   @media only screen and (max-width: 600px) {
+    height: 9.5rem;
+    margin-bottom: 1rem;
     a {
       font-size: 1.8rem;
     }
@@ -210,11 +215,18 @@ export const ImageDataStyles = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    h2::first-child {
+    padding: 1rem 2rem;
+
+    h2:first-child {
       font-size: 2rem;
     }
-    h2 {
+    h2,
+    h2 span,
+    h2 span a {
       font-size: 1.8rem;
+    }
+    h2:nth-child(3) span {
+      text-decoration: underline;
     }
   }
 `

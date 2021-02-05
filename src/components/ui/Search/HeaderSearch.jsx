@@ -29,7 +29,7 @@ export const HeaderSearch = ({ handleSearch }) => {
       {!logged
         ? <HeaderLogin>
             <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>
-            <Link to='/login'><h2 className='favorites'>Login</h2></Link>
+            <Link to='/login'><h2 className='favorites login'>Login</h2></Link>
           </HeaderLogin>
         : <HeaderLogin>
             <NavLink to='/favorites' activeClassName='active'><h2 className='favorites'>Favoritos</h2></NavLink>

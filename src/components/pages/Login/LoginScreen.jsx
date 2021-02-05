@@ -38,7 +38,7 @@ const LoginScreen = () => {
     <LoginStyles>
       <form onSubmit={handleLogin}>
         <div className="title">
-          <img src={logo} alt="pixabay-logo"/>
+          <Link to='/'><img src={logo} alt="pixabay-logo"/></Link>
         </div>
         <SocialsStyles>
           <div className="auth__socials-google" onClick={handleGoogleLogin}>

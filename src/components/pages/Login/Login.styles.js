@@ -108,6 +108,24 @@ export const LoginStyles = styled.section`
   @media only screen and (max-width: 600px) {
     width: 100%;
     padding: 0 2rem;
+
+    .text h2 {
+      font-size: 1.6rem;
+    }
+    .text h2::before {
+      width: 15%;
+    }
+    .text h2::after {
+      width: 15%;
+    }
+
+    form input {
+      height: 4.5rem;
+      font-size: 1.5rem;
+    }
+    form button {
+      height: 4.5rem;
+    }
   }
 `
 
@@ -146,5 +164,12 @@ export const SocialsStyles = styled.div`
   .auth__socials-google .container img {
     width: 2rem;
     margin-right: 1rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .auth__socials-facebook,
+    .auth__socials-google {
+      height: 4.5rem;
+    }
   }
 `

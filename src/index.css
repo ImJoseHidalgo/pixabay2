@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #f3f3f3;
 }
-h1, h2, h3, h4, p, a, li, input, button {
+h1, h2, h3, h4, p, a, li, input, button, div, span {
   font-size: 1.6rem;
 }
 main {
@@ -24,4 +24,14 @@ main {
 ====================== */
 .animate__animated.animate__fadeIn {
   --animate-duration: .2s;
+}
+.swal2-title {
+  font-size: 2.5rem;
+}
+.swal2-styled.swal2-confirm {
+  border-radius: 5rem;
+}
+.swal2-popup {
+  background: #F3F3F3;
+  color: #333;
 }

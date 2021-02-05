@@ -14,14 +14,16 @@ const HomeScreen = ({ history, props }) => {
     history.push(`/search/${keyword}/1`);
   }
   
-  return (<>
+  return (
+  <>
     <HeaderHomeSearch handleSearch={handleSearch} />
     <Landing />
     {loading 
       ? <Loading />
       : <GridStyles>
-      {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
-    </GridStyles>}
+          {imgs.map(({id, tags, likes, webformatURL}) => <DataGridItem key={id} id={id} tag={tags} likes={likes} img={webformatURL} />)}
+        </GridStyles>
+    }
   </>)
 }
 

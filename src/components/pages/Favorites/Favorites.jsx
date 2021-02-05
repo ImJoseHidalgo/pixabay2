@@ -8,23 +8,25 @@ import { FavoritesFalseStyles, FavoritesTrueStyles, GridStyles, FavoritesLogin }
 const Favorites = () => {
 
   const { logged } = useSelector(state => state.auth);
-  let { imgs, isEmpty } = useSelector(state => state.imgs);
+  let { imgs } = useSelector(state => state.imgs);
 
-  (imgs.length !== 0) ? isEmpty = false : isEmpty = true;
+  let empty = false;
+
+  (imgs.length !== 0) ? empty = false : empty = true;
   
   return (
     <>
       <HeaderSearch />
       {(logged)
-        ? ((isEmpty) 
+        ? ((empty) 
         ? ( <FavoritesFalseStyles>
               <h1>Aun no tienes favoritos</h1>
             </FavoritesFalseStyles>)
             // : (imgs.map( img => (<img onClick={()=>dispatch(startDeleting(img.id))} key={img.id} src={img.shortImg} alt='ad' />)))
             : <FavoritesTrueStyles>
                 <h5>Estas son tus imagenes Favoritas!</h5>
-                <GridStyles className='imgs-container'>
-                  {imgs.map((img) => <DataGridItem key={img.id} path={img.path} tag='img' img={img.shortImg} />)}
+                <GridStyles>
+                  {imgs.map((img) => <DataGridItem key={img.id} path={img.path} tag='img' imgF={img.shortImg} />)}
                 </GridStyles>
               </FavoritesTrueStyles>
           )

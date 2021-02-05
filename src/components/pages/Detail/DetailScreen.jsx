@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import GetImgData from '../../../services/GetImgData';
 import iconUser from '../../../icons/icon-user.png';
 import likeIcon from '../../../icons/corazon.svg';
@@ -37,11 +38,21 @@ const DetailScreen = ({ history }) => {
       const nose = await loadImgs(uid);
       const a = nose.find(img => img.path === path) || [];
       if(a.length === 0) {
-        dispatch(startNewFavorite(path, shortImg));
+        dispatch(startNewFavorite(path,id));
         setIsFavorite(true);
       }
     } else {
-      alert('Debes iniciar sesion para guardar imagenes')
+      Swal.fire({
+        title: 'Debes iniciar sesión para añadir imagenes a favoritos',
+        icon: 'info',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText:'Iniciar sesión',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          history.push('/login');
+        }
+      })
     }
   }
 
@@ -55,7 +66,7 @@ const DetailScreen = ({ history }) => {
     }
   }
   useEffect(() => {
-    isFavIcon()
+     isFavIcon()
   }, [isFavorite])
 
   const handleRemoveFavorite = async() => {
@@ -64,7 +75,6 @@ const DetailScreen = ({ history }) => {
     dispatch(startDeleting(a.id))
     setIsFavorite(false)
   }
-
   return (
     <>
       <HeaderSearch handleSearch={handleSearch} />

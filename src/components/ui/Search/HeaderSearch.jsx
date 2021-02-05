@@ -17,7 +17,8 @@ export const HeaderSearch = ({ handleSearch }) => {
     dispatch(startLogout());
   }
   const handleLogoutButton = () => {
-    (logoutButton) ? setLogoutButton(false) : setLogoutButton(true);
+    // (logoutButton) ? setLogoutButton(false) : setLogoutButton(true);
+    setLogoutButton(!logoutButton)
   }
   
   window.scrollTo(0, 0);

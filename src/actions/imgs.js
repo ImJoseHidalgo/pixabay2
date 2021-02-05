@@ -2,7 +2,9 @@ import { db } from "../firebase/firebaseConfig";
 import { loadImgs } from "../helpers/loadImgs";
 import { types } from "../types/types";
 
-export const startNewFavorite = (path, shortImg) => {
+export const startNewFavorite = (path, id) => {
+  const shortImg = id;
+  
   return async(dispatch, getState) => {
 
     const { uid } = getState().auth;

@@ -1,4 +1,4 @@
-import { firebase, googleAuthProvider } from '../firebase/firebaseConfig';
+import { firebase, googleAuthProvider, facebookAuthProvider } from '../firebase/firebaseConfig';
 import Swal from 'sweetalert2';
 import { types } from "../types/types";
 import { finishLoading, startLoading } from './ui';
@@ -65,6 +65,21 @@ export const startGoogleLogin = () => {
           user.displayName,
           user.photoURL
         ))
+        dispatch(startLoadingImgs(user.uid))
+      });
+  }
+}
+
+export const startFacebookLogin = () => {
+  return (dispatch) => {
+    firebase.auth().signInWithPopup(facebookAuthProvider)
+      .then(({user}) => {
+        dispatch(login(
+          user.uid,
+          user.displayName,
+          user.photoURL
+          ))
+          console.log(user);
         dispatch(startLoadingImgs(user.uid))
       });
   }

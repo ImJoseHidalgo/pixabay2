@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startGoogleLogin, startLoginEmailPassword } from '../../../actions/auth';
+import { startFacebookLogin, startGoogleLogin, startLoginEmailPassword } from '../../../actions/auth';
 import { useForm } from '../../../hooks/useForm';
 
 import googleIcon from '../../../icons/google.svg';
@@ -30,6 +30,10 @@ const LoginScreen = () => {
     dispatch(startGoogleLogin());
   }
 
+  const handleFacebookLogin = () => {
+    dispatch(startFacebookLogin());
+  }
+
   return (
     <LoginStyles>
       <form onSubmit={handleLogin}>
@@ -37,13 +41,13 @@ const LoginScreen = () => {
           <img src={logo} alt="pixabay-logo"/>
         </div>
         <SocialsStyles>
-          <div className="auth__socials-google" onClick={handleGoogleLogin} >
+          <div className="auth__socials-google" onClick={handleGoogleLogin}>
             <div className="container">
               <img src={googleIcon} alt="google icon"/>
               <h2>Iniciar sesión con Google</h2>
             </div>
           </div>
-          <div className="auth__socials-facebook">
+          <div className="auth__socials-facebook" onClick={handleFacebookLogin}>
             <div className="container">
               <img src={facebookIcon} alt="facebook icon"/>
               <h2>Iniciar sesión con Facebook</h2>

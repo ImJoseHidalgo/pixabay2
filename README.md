@@ -28,13 +28,13 @@ This project is a Pixabay Clone with a design inspirated in a redesign of behanc
 - **Firebase / Firestore**
 
 
-# Installation
+## Installation
 
 - In your terminal, type ```git clone https://github.com/ImJoseHidalgo/pixabay2```
 - This will copy all the files from this repo down to your computer
 - In your terminal, cd into the directory you just created
 - Type ```npm install``` to install all dependencies
-- Search ```firebaseCongif.js``` into 'firebase' folder, replace firebaseConfig values with your firebase credentials and configure email, google and facebook authentication en firebase.
+- Search ```firebaseCongif.js``` into 'firebase' folder, replace firebaseConfig values with your firebase credentials and configure email, google and facebook authentication in firebase.
 - Last, but not least, type ```npm start``` to run the app locally.
 - To look at the code, just open up the project in your favorite code editor!
 

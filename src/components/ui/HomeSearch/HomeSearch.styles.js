@@ -67,31 +67,39 @@ export const HeaderLogin = styled.div`
   }
   .logout__button,
   .logout__button {
-    cursor: pointer;
     position: absolute;
     z-index: 2;
     padding: 1.3rem 0;
-    width: 21rem;
-    right: 0;
-    top: 120%;
-    border-radius: 5rem;
+    width: 18rem;
+    right: 6rem;
+    top: 110%;
+    border-radius: 2.5rem 0 2.5rem 2.5rem;
     box-shadow: 1px 1px 12px rgba(0, 0, 0, .1);
     border-top: 0;
-    /* background: #E8E8E8; */
     background: #F3F3F3;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
-  .logout__button:hover,
+  /* .logout__button:hover,
   .logout__button:hover {
     box-shadow: 1px 1px 12px rgba(0, 0, 0, .2);
-    text-decoration: underline;
-  }
-  .logout__button,
+  } */
   .logout__button h2 {
+    margin: 1rem 0;
     font-size: 1.8rem;
     font-weight: 400;
+    cursor: pointer;
+  }
+  .logout__button h2:hover {
+    text-decoration: underline;
+  }
+  .logout__button h3 {
+    margin-top: .8rem;
+    font-weight: 400;
+    color: #666;
+    font-size: 1.7rem;
   }
   .user {
     display: flex;
@@ -120,8 +128,12 @@ export const HeaderLogin = styled.div`
       height: 3.5rem;
     }
     .logout__button {
-      height: 4.5rem;
-      width: 15rem;
+      height: 9rem;
+      width: 16rem;
+      right: 4rem;
+    }
+    .logout__button h3 {
+      font-size: 1.6rem;
     }
     .user {
       margin-left: 0rem;

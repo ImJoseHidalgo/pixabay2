@@ -36,8 +36,9 @@ export const HeaderHomeSearch = ({ handleSearch }) => {
                 <img src={arrow} alt='arrow' />
                 <img src={photoURL || iconUser} alt={name} />
               </div>
-              {logoutButton && <div className="logout__button animate__animated animate__fadeIn" onClick={handleLogout}>
-                <h2>Cerrar Sesión</h2>
+              {logoutButton && <div className="logout__button animate__animated animate__fadeIn" >
+                <h3>{name}</h3>
+                <h2 onClick={handleLogout} >Cerrar Sesión</h2>
               </div>}
             </HeaderLogin>
         }

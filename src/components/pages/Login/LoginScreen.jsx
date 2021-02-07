@@ -57,8 +57,12 @@ const LoginScreen = () => {
         <div className="text">
           <h2>también puedes iniciar<br/>sesión con tu correo</h2>
         </div>
-        <input type="email" placeholder='Email' name='email' value={email} onChange={handleInputChange} />
-        <input type="password" placeholder='Contraseña' name='password' value={password} onChange={handleInputChange} />
+        <input 
+          type="email" placeholder='Email' name='email' 
+          value={email} onChange={handleInputChange} />
+        <input 
+          type="password" placeholder='Contraseña' name='password' 
+          value={password} onChange={handleInputChange} />
         <button type='submit' disabled={loading}>Iniciar Sesión</button>
         <Link to='/register'><p>Crear una cuenta nueva.</p></Link>
       </form>

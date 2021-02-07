@@ -16,7 +16,7 @@ const RegisterScreen = () => {
     password: '',
     password2: ''
   });
-
+  
   const { userName, email, password, password2 } = formValues;
 
   const handleRegister = (e) => {
@@ -40,10 +40,18 @@ const RegisterScreen = () => {
         <div className="text register">
           <h2>Regístrate para guardar<br/>tus fotos favoritas</h2>
         </div>
-        <input type="text" placeholder='Nombre' name='userName' value={userName} onChange={handleInputChange} />
-        <input type="email" placeholder='Email' name='email' value={email} onChange={handleInputChange} />
-        <input type="password" placeholder='Contraseña' name='password' value={password} onChange={handleInputChange} />
-        <input type="password" placeholder='Repita su contraseña' name='password2' value={password2} onChange={handleInputChange} />
+        <input 
+          type="text" placeholder='Nombre' name='userName' 
+          value={userName} onChange={handleInputChange} />
+        <input 
+          type="email" placeholder='Email' name='email' 
+          value={email} onChange={handleInputChange} />
+        <input 
+          type="password" placeholder='Contraseña' name='password' 
+          value={password} onChange={handleInputChange} />
+        <input 
+          type="password" placeholder='Repita su contraseña' name='password2' 
+          value={password2} onChange={handleInputChange} />
         <button type='submit' >Registrarse</button>
         <Link to='/login'><p>Ya tienes una cuenta?</p></Link>
         <p>Al registrarte, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
@@ -52,4 +60,4 @@ const RegisterScreen = () => {
   )
 }
 
-export default RegisterScreen
+export default RegisterScreen;

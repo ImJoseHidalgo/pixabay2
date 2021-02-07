@@ -66,8 +66,8 @@ const DetailScreen = ({ history }) => {
     }
   }
   useEffect(() => {
-     isFavIcon()
-  }, [isFavorite])
+    isFavIcon()
+  }, [])
 
   const handleRemoveFavorite = async() => {
     const nose = await loadImgs(uid);

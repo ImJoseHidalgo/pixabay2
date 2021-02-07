@@ -24,6 +24,31 @@ export const LoginStyles = styled.section`
     align-items: center;
     flex-direction: column;
   }
+  /* .input-box {
+    position: relative;
+    background: red;
+    width: 40rem;
+    height: 5rem;
+    padding: 2rem;
+  }
+  .input-box input {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .input-box span {
+    position: absolute;
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    transition: .2s;
+    color: #666;
+  }
+  .input-box input:valid ~ span,
+  .input-box input:focus ~ span {
+    font-size: 1.4rem;
+    color: #000;
+    transform: translateX(-10px) translateY(-32px);
+  } */
   form input {
     border: none;
     outline: none;

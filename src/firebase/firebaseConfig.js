@@ -3,12 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB5EUfpYVzlqUThUOlPbPAjdS_eWtsK-jk",
-  authDomain: "pixabay2-1bb19.firebaseapp.com",
-  projectId: "pixabay2-1bb19",
-  storageBucket: "pixabay2-1bb19.appspot.com",
-  messagingSenderId: "1005517379151",
-  appId: "1:1005517379151:web:52de2704ee5ac7603fbc3a"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
 firebase.initializeApp(firebaseConfig);
